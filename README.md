@@ -1,43 +1,43 @@
-# ハイブリッドレコメンデーションシステム
+# Hybrid Recommendation System
 
-## プロジェクト概要
+## Project Overview
 
-このプロジェクトは、Amazon Personalize、TensorFlow Lite、およびFirebase ML Kitを組み合わせた高度なハイブリッドレコメンデーションシステムを実装しています。このシステムは、複数のアプローチを統合することで、より正確で個別化された推奨を提供することを目的としています。
+This project implements an advanced hybrid recommendation system that combines Amazon Personalize, TensorFlow Lite, and Firebase ML Kit. The system aims to provide more accurate and personalized recommendations by integrating multiple approaches.
 
-## 主要コンポーネント
+## Key Components
 
-1. **データ収集と前処理** (`src/data_processing/`)
-   - Firebaseからユーザーデータを収集
-   - データの前処理と正規化
+1. **Data Collection and Preprocessing** (`src/data_processing/`)
+   - Collect user data from Firebase
+   - Data preprocessing and normalization
 
-2. **Amazon Personalize統合** (`src/recommenders/personalize_recommender.py`)
-   - Amazon Personalizeを使用した推奨の生成
+2. **Amazon Personalize Integration** (`src/recommenders/personalize_recommender.py`)
+   - Generate recommendations using Amazon Personalize
 
-3. **TensorFlow Liteモデル** (`src/models/tf_lite_model.py`)
-   - カスタムTensorFlow Liteモデルの作成と使用
+3. **TensorFlow Lite Model** (`src/models/tf_lite_model.py`)
+   - Create and use custom TensorFlow Lite models
 
-4. **Firebase ML Kit統合** (`src/ml_kit/firebase_ml_kit.py`)
-   - Firebase ML Kitを使用したオンデバイス推論
+4. **Firebase ML Kit Integration** (`src/ml_kit/firebase_ml_kit.py`)
+   - On-device inference using Firebase ML Kit
 
-5. **ハイブリッドレコメンダー** (`src/recommenders/hybrid_recommender.py`)
-   - 複数のレコメンデーションソースを組み合わせた最終的な推奨の生成
+5. **Hybrid Recommender** (`src/recommenders/hybrid_recommender.py`)
+   - Generate final recommendations by combining multiple recommendation sources
 
-## セットアップ手順
+## Setup Instructions
 
-1. 必要な依存関係をインストールします：
+1. Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
 
-2. Firebase、Amazon Personalize、TensorFlow Liteの認証情報を設定します。
+2. Set up credentials for Firebase, Amazon Personalize, and TensorFlow Lite.
 
-3. TensorFlow Liteモデルを作成し、`model.tflite`として保存します。
+3. Create the TensorFlow Lite model and save it as `model.tflite`.
 
-4. Firebase ML Kitにモデルをデプロイします。
+4. Deploy the model to Firebase ML Kit.
 
-## 使用方法
+## Usage
 
-1. データ収集：
+1. Data Collection:
    ```python
    from src.data_processing.data_collector import collect_user_data, preprocess_data
 
@@ -45,7 +45,7 @@
    processed_data = preprocess_data(raw_data)
    ```
 
-2. レコメンデーションの取得：
+2. Get Recommendations:
    ```python
    from src.recommenders.hybrid_recommender import HybridRecommender
 
@@ -53,19 +53,19 @@
    recommendations = recommender.get_recommendations(user_id, user_data)
    ```
 
-## 開発ガイドライン
+## Development Guidelines
 
-1. コードスタイル：PEP 8ガイドラインに従ってください。
-2. テスト：新機能を追加する際は、対応するユニットテストを`tests/`ディレクトリに追加してください。
-3. ドキュメント：関数やクラスには適切なドキュメンテーション文字列を追加してください。
+1. Code Style: Follow PEP 8 guidelines.
+2. Testing: Add corresponding unit tests in the `tests/` directory when adding new features.
+3. Documentation: Add appropriate docstrings to functions and classes.
 
-## 今後の改善点
+## Future Improvements
 
-1. モデルの性能評価と最適化
-2. より高度な推奨結合アルゴリズムの実装
-3. リアルタイムフィードバックの統合
-4. スケーラビリティの向上
+1. Model performance evaluation and optimization
+2. Implementation of more advanced recommendation fusion algorithms
+3. Integration of real-time feedback
+4. Scalability improvements
 
-## ライセンス
+## License
 
-このプロジェクトは[MITライセンス](LICENSE)の下で公開されています。
+This project is licensed under the [MIT License](LICENSE).
